@@ -91,7 +91,7 @@ const getJobScripts = async (context, job) => {
       scriptContentsAfterCut = scriptContents;
 
       if (context.config.regex) {
-        const regex = new RegExp(context.config.regex);
+        const regex = new RegExp(context.config.regex, 'g');
         const regexResult = regex.exec(scriptContents);
         if (regexResult && regexResult.length > 1) {
           [, scriptContents] = regexResult;
